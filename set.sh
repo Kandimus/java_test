@@ -1,1 +1,1 @@
-curl -X POST localhost:8000/api/messages -H "Authorization:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NvdW50IjoxfQ.NshB0Ssh_viPiuXuwOuHdepliOfnlbFAREne0-KPCqo" -d '{"name": "test" , "password" : "test"}'
+curl -X POST localhost:8000/api/messages -H "Authorization:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.EZw0QCMFjtSg30cst2WdEYHIHzdCFLwHgF41N0nJJ5U" -d '{"name": "test" , "message" : "test message N"}'

@@ -59,16 +59,18 @@ public class SqlDB
 		return 0;
 	}
 
-	public void addMessage(int user_id, String text)
+	public void addMessage(int user_id, String name, String text)
 	{
 		if (m_con == null || m_stmt == null) {
 			return;
 		}
 
-		String query = String.format("INSERT INTO `messages` (`user_id`, `text`) values(%i, \"%s\");", user_id, text);
+		String query = "INSERT INTO `messages` (`user_id`, `name`, `text`) values(" + user_id + ", \"" + name + "\", \"" + text + "\");";
+
+		System.out.println("sql: [" + query + "]");
 
 		try {
-			m_stmt.executeQuery(query);
+			m_stmt.executeUpdate(query);
 		} catch (SQLException sqlEx) {
 			sqlEx.printStackTrace();
 		}
@@ -82,7 +84,7 @@ public class SqlDB
 			return result;
 		}
 
-		String query = "SELECT `text` FROM (SELECT `text`, `id` FROM `mesasges` ORDER BY `id` DESC LIMIT 10) t ORDER BY `id`;";
+		String query = "SELECT `text` FROM (SELECT `text`, `id` FROM `messages` ORDER BY `id` DESC LIMIT 10) t ORDER BY `id`;";
 
 		try {
 			m_rs = m_stmt.executeQuery(query);
